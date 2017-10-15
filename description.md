@@ -1,3 +1,5 @@
+# Marching Band Database Description
+
 1. The system tracks students that are in the school marching band. Students have a unique G#, name, and major.  Every student in the system is either a marcher or a drum major.
 
 2. The system tracks the different marching seasons. Seasons have a unique term code and a description. The system will track marching shows. Shows have a title and a performance date.
@@ -6,7 +8,7 @@
 
 4. There are also Songs that the system must track. Songs have a unique songId, a title, and one or more composers.
 
-5. For any given show in a given season, there are songs that make up the show. A show has to have at least 1 song in it, but not every song has to be in a show. The system must also track the order of the songs in each show.
+5. For any given show in a given season, there are songs that make up the show. A show has to have at least 1 song in it, but not every song has to be in a show. The system must also track the order of the songs in each show. Each show is identified by a show number.
 
 6. Marchers participate in shows. Not every marcher participates in a given show, and not every show has marchers participating in it. A marcher can participate in several shows, and a show has several marchers. The system needs to track what instrument a marcher plays for a given show.
 
