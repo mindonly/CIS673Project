@@ -1,0 +1,110 @@
+1. 
+--join involving at least four relations.
+SELECT Season.Description, Show.Title, Show.Date, Song.Title, DrumMajor.StudentId 
+FROM Season
+JOIN Show on Season.TermCode = Show.TermCode
+JOIN Song on Show.SongId = Show.SongId
+Join DrumMajor on Song.DrumMajorId = DrumMajor.DrumMajorId
+
+
+2.
+--Self join
+--select students with the same major
+SELECT Student.Name AS Student1, Student.Name AS Student2, Student.Major
+FROM Student A, Student B
+WHERE A.StudentId != B.StudentId
+AND A.Major = B.Major
+ORDER BY A.Major;
+
+3.
+--union
+-- Select all students who are Biology majors 
+-- or are drum majors
+SELECT Student.StudentId, Student.Name
+FROM Student 
+WHERE Major = 'Biology'
+UNION
+SELECT Student.StudentId, Student.Name
+FROM Student, DrumMajor
+WHERE Student.StudentId = DrumMajor.StudentId;
+
+-- intersect
+-- show StudentId of Marchers who are Business majors
+SELECT StudentId
+FROM Marcher
+INTERSECT
+SELECT StudentId
+FROM Student
+WHERE Major = 'Business';
+
+
+4. 
+-- SUM, AVG, MAX, and/or MIN
+SELECT SUM(SongLength), AVG(SongLength),MAX(SongLength), MIN(SongLength)
+FROM Song;
+
+5. 
+--GROUP BY, HAVING, and ORDER BY, all appearing in the same query
+--Select the number of shows that were performed more than once on a given date
+SELECT Show.Title, COUNT(*)
+FROM Show
+GROUP BY Show.Date
+HAVING COUNT(*) >= 2
+ORDER BY Show.Title ASC;
+
+6.
+-- correlated subquery
+-- select  shows with longer songs than the average
+-- song length of all songs
+SELECT s.SongId, s.Title, s.Composer
+FROM Song Sng, Show
+Where s.SongLength > (
+	Select AVG(SongLength)
+	FROM Song s
+	WHERE s.SongId = Sng.SongId);
+
+7.
+--non-correlated subquery
+-- select all students that have not checked out a uniform
+SELECT Student.StudentId, Student.Name
+FROM Student
+WHERE NOT EXISTS (
+	SELECT * 
+	FROM Uniform
+	WHERE Uniform.StudentId = Student.StudentId);
+
+8.
+-- relational division query
+-- select studentId and name for every student DrumMajor that has conducted a song named 'Fight Song' 
+SELECT Student.StudentId, Student.Name, Song.Title
+FROM Student
+WHERE NOT EXISTS(
+	(SELECT Song.Id
+	FROM Song
+	WHERE Song.Title = 'Fight Song'	
+	MINUS	
+	(SELECT Song.Id
+	FROM Conducted
+	WHERE Conducted.StudentId = Student.StudentId
+	AND  Conducted.SongId = Song.SongId	
+	AND Song.Title = 'Fight Song'
+	);
+
+9.
+-- outer join
+--Show the purchase date for each student with a uniform
+SELECT Student.StudentId, Student.Name, Uniform.UniformId, Uniform.PurchaseDate
+FROM Student LEFT OUTER JOIN Uniform on Student.StudentId = Uniform.StudentId
+
+10.
+-- RANK query
+-- returns the rank of a song with a SongLength of 90
+-- sec and BPM of 120
+SELECT RANK(90, 120) WITHIN GROUP (ORDER BY SongLength, BPM)
+FROM Song
+
+11. 
+--Top-N query
+SELECT TOP 5 * 
+FROM Uniform
+WHERE PurchaseDate = '08/01/2017';
