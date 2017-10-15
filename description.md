@@ -24,22 +24,26 @@
 
 ## Marcher
 * Marchers participate in shows. 
-* Not every Marcher participates in a given show, and not every show has Marchers participating in it. 
-* A Marcher can participate in several shows, and a show has several Marchers. 
+* Not every Marcher participates in a given show. 
+* Not every show has Marchers participating in it.
+    - (This seems odd to me. -RS)
+* A Marcher can participate in several shows, and a show has one or more Marchers. 
 * The system needs to track what instrument a Marcher plays for a given show.
+    - (I think this means Instrument could be a multi-valued relationship attribute. - RS)
 
 ## Drum Major
 * Drum majors are lead conductors for specific songs of any given show. 
 * A Drum Major can be lead conductor for several songs in a show. 
 * A song only has one lead conductor per show 
-    - (I think this means that the relationship going from lead conductor to show needs to be identifying. That makes the drawing incorrect.)
+    - (I think this means that the relationship going from lead conductor to show needs to be identifying. That makes the drawing incorrect. -JW)
 * Not every Drum Major has to be a lead conductor within a show.
 * Every song within a show must have a lead conductor; however, not every show needs lead conductors. 
-    - (This I think will need to be implemented via trigger. Simply put: You can plan a show with 4 songs to be a in future season. Since you don't know what Drum Majors you will have that season, you cannot yet assign them as lead conductors for songs in that show. BUT, if you start to assign Drum Majors as lead conductors of songs in a given show, then all songs in that show must have a lead conductor. It is all or nothing.)
+    - (This I think will need to be implemented via trigger. Simply put: You can plan a show with 4 songs to be a in future season. Since you don't know what Drum Majors you will have that season, you cannot yet assign them as lead conductors for songs in that show. BUT, if you start to assign Drum Majors as lead conductors of songs in a given show, then all songs in that show must have a lead conductor. It is all or nothing. -JW)
 
 ## Uniform
-* the system will track Uniforms. 
-* Uniforms are uniquely identified by their UniformId. 
+* The system will track Uniforms. 
+* Uniforms are uniquely identified by their UniformID. 
 * They also have a purchaseDate. 
 * Each Student checks out only one Uniform and a Uniform can only be checked out by one student.
+* Not every Uniform in the band's inventory is necessarily checked out.
 
