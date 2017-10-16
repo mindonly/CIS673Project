@@ -27,7 +27,6 @@
 * Not every Marcher participates in a given show. 
 * Not every show has Marchers participating in it.
     - (This seems odd to me. -RS)
-    - If a show doesn't have marchers in it, how is it a show? Unless you are talking about unplanned shows in the future? (Victor)
 * A Marcher can participate in several shows, and a show has one or more Marchers. 
 * The system needs to track what instrument a Marcher plays for a given show.
     - (I think this means Instrument could be a multi-valued relationship attribute. - RS)
