@@ -31,7 +31,7 @@
     - (This seems odd to me. -RS)
 * A Marcher can participate in several shows, and a show has one or more Marchers. 
 * The system needs to track what instrument a Marcher plays for a given show.
-    - (I think this means Instrument could be a multi-valued relationship attribute. - RS)
+* A Marcher only plays one instrument per show.
 
 ## Drum Major
 * Drum majors are lead conductors for specific songs of any given show. 
