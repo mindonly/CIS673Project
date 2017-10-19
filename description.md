@@ -36,6 +36,7 @@
 * The system needs to track what instrument a Marcher plays for a given show.
 * A Marcher only plays one instrument per show.
 * The instrument that a marcher can play must be one of the following: Piccolo, Clarinet, Alto Sax, Tenor Sax, Mellophone, Trumpet, Trombone, Baritone, Sousaphone, Percussion, Flag, or Twirler.
+* A marcher must play the same instrument for every show in a season.
 
 ## Drum Major
 * Drum majors are lead conductors for specific songs of any given show. 
