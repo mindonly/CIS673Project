@@ -19,6 +19,8 @@
 * There are also Songs that the system must track. 
 * Songs have a unique songID, a title, and one or more composers.
 * For any given Show in a given Season, there are Songs that make up the Show. 
+* A Show can have many songs and a song can be in multiple shows.
+    - (I added this statement to clarify the show/song relationship is M:N -JW)
 * A Show has to have at least 1 Song in it, but not every Song has to be in a Show.
 * The system must also track the order of the Songs in each Show. 
 
