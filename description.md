@@ -18,11 +18,14 @@
 ## Song
 * There are also Songs that the system must track. 
 * Songs have a unique songID, a title, and one or more composers.
+* The system will also track the song's tempo and number of measures in the song.
 * For any given Show in a given Season, there are Songs that make up the Show. 
 * A Show can have many songs and a song can be in multiple shows.
     - (I added this statement to clarify the show/song relationship is M:N -JW)
 * A Show has to have at least 1 Song in it, but not every Song has to be in a Show.
-* The system must also track the order of the Songs in each Show. 
+* The system must also track the order of the Songs in each Show.
+* Songs must have a minimum tempo of 96 BPM.
+* Songs must have a minimum of 50 measures.
 
 ## Marcher
 * Marchers participate in shows. 
