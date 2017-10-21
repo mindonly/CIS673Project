@@ -31,21 +31,20 @@
 * Marchers participate in shows. 
 * Not every Marcher participates in a given show. 
 * Not every show has Marchers participating in it.
-    - (This seems odd to me. -RS)
 * A Marcher can participate in several shows, and a show has one or more Marchers. 
 * The system needs to track what instrument a Marcher plays for a given show.
 * A Marcher only plays one instrument per show.
 * The instrument that a marcher can play must be one of the following: Piccolo, Clarinet, Alto Sax, Tenor Sax, Mellophone, Trumpet, Trombone, Baritone, Sousaphone, Percussion, Flag, or Twirler.
 * A marcher must play the same instrument for every show in a season.
 
-## Drum Major
-* Drum majors are lead conductors for specific songs of any given show. 
-* A Drum Major can be lead conductor for several songs in a show. 
-* A song only has one lead conductor per show 
-    - (I think this means that the relationship going from lead conductor to show needs to be identifying. That makes the drawing incorrect. -JW)
-* Not every Drum Major has to be a lead conductor within a show.
-* Every song within a show must have a lead conductor; however, not every show needs lead conductors. 
-    - (This I think will need to be implemented via trigger. Simply put: You can plan a show with 4 songs to be a in future season. Since you don't know what Drum Majors you will have that season, you cannot yet assign them as lead conductors for songs in that show. BUT, if you start to assign Drum Majors as lead conductors of songs in a given show, then all songs in that show must have a lead conductor. It is all or nothing. -JW)
+## Drum Major/Lead Conductor
+* Drum Majors are Lead Conductors for specific songs of any given show. 
+* A Drum Major can be Lead Conductor for several songs in a show. 
+* A song only has one Lead Conductor per show 
+    - (I think this means that the relationship going from Lead Conductor to show needs to be identifying. That makes the drawing incorrect. -JW)
+* Not every Drum Major has to be a Lead Conductor within a show.
+* Every song within a show must have a Lead Conductor; however, not every show needs Lead Conductors. 
+    - (This I think will need to be implemented via trigger. Simply put: You can plan a show with 4 songs to be a in future season. Since you don't know what Drum Majors you will have that season, you cannot yet assign them as Lead Conductors for songs in that show. BUT, if you start to assign Drum Majors as Lead Conductors of songs in a given show, then all songs in that show must have a Lead Conductor. It is all or nothing. -JW)
 
 ## Uniform
 * The system will track Uniforms. 
