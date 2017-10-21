@@ -12,6 +12,7 @@
 ## Show
 * The system will track marching Shows. 
 * Shows have a title and a performance date.
+    - (If we use Date as the Show then Show doesn't have to be Weak ?? Then Lead Conductor key doesn't need to include Season TermCode ?? -RS)
 * A Show belongs to a specific Season and a Season can have many shows.
 * Not all Seasons have Shows planned for them yet.
 
