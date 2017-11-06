@@ -200,7 +200,30 @@ CREATE TABLE leadConductor (
 );
 --
 -- Create leadConductor_IC4 Trigger
--- <<<<<	INSERT CODE HERE	>>>>>
+-- The combination of termCode and showTitle must be an existing show.
+CREATE TRIGGER leadConductor_IC4_tr
+BEFORE INSERT OR UPDATE ON
+	leadConductor
+FOR EACH ROW
+DECLARE
+	counter INTEGER; /* counter variable */
+BEGIN
+	SELECT
+		COUNT(1)
+	INTO
+		counter
+	FROM
+		show
+	WHERE
+		termCode = :new.termCode
+		AND title = :new.showTitle;
+
+	IF counter = 0
+	THEN
+		RAISE_APPLICATION_ERROR(-20001,'The show/termCode combination does not exist. ' || :new.showTitle || ' does not exist in term ' || :new.termCode);
+	END IF;
+END;
+/
 --
 -- Create leadConductor_IC5 Trigger
 -- <<<<<	INSERT CODE HERE	>>>>>
@@ -227,7 +250,30 @@ CREATE TABLE showLineup (
 );
 --
 -- Create showLineup_IC3 Trigger
--- <<<<<	INSERT CODE HERE	>>>>>
+-- The combination of termCode and showTitle must be an existing show.
+CREATE TRIGGER showLineup_IC3_tr
+BEFORE INSERT OR UPDATE ON
+	showLineup
+FOR EACH ROW
+DECLARE
+	counter INTEGER; /* counter variable */
+BEGIN
+	SELECT
+		COUNT(1)
+	INTO
+		counter
+	FROM
+		show
+	WHERE
+		termCode = :new.termCode
+		AND title = :new.showTitle;
+
+	IF counter = 0
+	THEN
+		RAISE_APPLICATION_ERROR(-20001,'The show/termCode combination does not exist. ' || :new.showTitle || ' does not exist in term ' || :new.termCode);
+	END IF;
+END;
+/
 --
 -- Populate the tables with simple test data
 SET FEEDBACK OFF

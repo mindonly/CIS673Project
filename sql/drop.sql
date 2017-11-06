@@ -9,7 +9,9 @@ DROP TABLE composer CASCADE CONSTRAINTS;
 DROP TABLE participation CASCADE CONSTRAINTS;
 DROP TRIGGER participation_IC4_tr;
 DROP TABLE leadConductor CASCADE CONSTRAINTS;
+DROP TRIGGER leadConductor_IC4_tr;
 DROP TABLE showLineup CASCADE CONSTRAINTS;
+DROP TRIGGER showLineup_IC3_tr;
 SET ECHO OFF
 SELECT table_name FROM user_tables;
 SELECT trigger_name FROM user_triggers;
