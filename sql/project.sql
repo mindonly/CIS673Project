@@ -166,7 +166,30 @@ END;
 /
 --
 -- Create pariticiaption_IC5 Trigger
--- <<<<<	INSERT CODE HERE	>>>>>
+-- A marcher must play the same instrument for every show they participate in for a given season.
+CREATE TRIGGER participation_IC5_tr
+BEFORE INSERT OR UPDATE ON
+	participation
+FOR EACH ROW
+DECLARE
+	instrument VARCHAR2;
+BEGIN
+	-- Get the instrument that :new.marcherId used when participating in shows for the given season :new.termCode
+	SELECT
+		instrument
+	INTO
+		instrument
+	FROM
+		participation
+	WHERE
+		termCode = :new.termCode;
+
+	IF LOWER(instrument) != LOWER(:new.instrument)
+	THEN
+		RAISE_APPLICATION_ERROR(-20001,'Invalid instrument. The marcher has been using ' || instrument || ' all of the ' || :new.termCode || ' term. You are trying to switch the instrument to ' || :new.instrument || '.');
+	END IF;
+END;
+/
 --
 -- Create Lead Conductor Table
 CREATE TABLE leadConductor (

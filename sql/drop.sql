@@ -1,5 +1,6 @@
 SET ECHO ON
 DROP TRIGGER participation_IC4_tr;
+DROP TRIGGER participation_IC5_tr;
 DROP TRIGGER leadConductor_IC4_tr;
 DROP TRIGGER showLineup_IC3_tr;
 DROP TABLE uniform CASCADE CONSTRAINTS;
