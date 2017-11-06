@@ -146,7 +146,7 @@ BEFORE INSERT OR UPDATE ON
 	participation
 FOR EACH ROW
 DECLARE
-	NUMBER counter /* counter variable */
+	counter INTEGER; /* counter variable */
 BEGIN
 	SELECT
 		COUNT(1)
@@ -157,11 +157,13 @@ BEGIN
 	WHERE
 		termCode = :new.termCode
 		AND title = :new.showTitle;
-	--
-	IF counter = 0 THEN
-		RAISE_APPLICATION_ERROR(-20000,'The show/termCode combination does not exist. ' || :new.showTitle || ' does not exist in term ' || :new.termCode);
+
+	IF counter = 0
+	THEN
+		RAISE_APPLICATION_ERROR(-20001,'The show/termCode combination does not exist. ' || :new.showTitle || ' does not exist in term ' || :new.termCode);
 	END IF;
 END;
+/
 --
 -- Create pariticiaption_IC5 Trigger
 -- <<<<<	INSERT CODE HERE	>>>>>
