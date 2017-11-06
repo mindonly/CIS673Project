@@ -140,7 +140,28 @@ CREATE TABLE participation (
 );
 --
 -- Create pariticiaption_IC4 Trigger
--- <<<<<	INSERT CODE HERE	>>>>>
+-- The combination of termCode and showTitle must be an existing show.
+CREATE TRIGGER participation_IC4_tr
+BEFORE INSERT OR UPDATE ON
+	participation
+FOR EACH ROW
+DECLARE
+	NUMBER counter /* counter variable */
+BEGIN
+	SELECT
+		COUNT(1)
+	INTO
+		counter
+	FROM
+		show
+	WHERE
+		termCode = :new.termCode
+		AND title = :new.showTitle
+	--
+	IF counter = 0 THEN
+		RAISE_APPLICATION_ERROR(-20000,'The show/termCode combination does not exist. ' || :new.showTitle || ' does not exist in term ' || :new.termCode);
+	END IF;
+END;
 --
 -- Create pariticiaption_IC5 Trigger
 -- <<<<<	INSERT CODE HERE	>>>>>
