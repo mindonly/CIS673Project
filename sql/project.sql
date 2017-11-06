@@ -96,7 +96,7 @@ CREATE TABLE song (
 -- Create Composer Table
 CREATE TABLE composer (
 	songId NUMBER(15),
-	composer VARCHAR2(255)
+	composer VARCHAR2(255),
 	--
 	-- composer_IC1:
 	-- songId and composer are the composite primary key
@@ -187,7 +187,7 @@ CREATE TABLE showLineup (
 	termCode NUMBER(6),
 	showTitle VARCHAR2(255),
 	songId NUMBER(15),
-	order INTEGER,
+	orderBy INTEGER,
 	--
 	-- showLineup_IC1:
 	-- termCode, showTitle, and songId are the composite primary key
