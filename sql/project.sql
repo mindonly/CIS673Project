@@ -34,7 +34,7 @@ CREATE TABLE marcher (
 	-- marcher_IC2:
 	-- Every marcher has one uniform checked out
 	CONSTRAINT marcher_IC2 FOREIGN KEY (uniformId)
-		REFERENCES uniforms (uniformId)
+		REFERENCES uniform (uniformId)
 );
 --
 -- Create Drum Major Table
@@ -51,7 +51,7 @@ CREATE TABLE drumMajor (
 	-- drumMajor_IC2:
 	-- Every marcher has one uniform checked out
 	CONSTRAINT drumMajor_IC2 FOREIGN KEY (uniformId)
-		REFERENCES uniforms (uniformId)
+		REFERENCES uniform (uniformId)
 );
 --
 -- Create Season Table
