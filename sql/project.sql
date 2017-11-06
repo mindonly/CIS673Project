@@ -157,6 +157,7 @@ BEGIN
 	WHERE
 		termCode = :new.termCode
 		AND title = :new.showTitle
+	;
 	--
 	IF counter = 0 THEN
 		RAISE_APPLICATION_ERROR(-20000,'The show/termCode combination does not exist. ' || :new.showTitle || ' does not exist in term ' || :new.termCode);
