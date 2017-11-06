@@ -175,7 +175,7 @@ DECLARE
 	instrument VARCHAR2;
 BEGIN
 	-- Get the instrument that :new.marcherId used when participating in shows for the given season :new.termCode
-	SELECT
+	SELECT DISTINCT
 		instrument
 	INTO
 		instrument
