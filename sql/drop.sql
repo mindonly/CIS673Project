@@ -11,3 +11,4 @@ DROP TABLE leadConductor CASCADE CONSTRAINTS;
 DROP TABLE showLineup CASCADE CONSTRAINTS;
 SET ECHO OFF
 SELECT table_name FROM user_tables;
+SELECT trigger_name FROM user_triggers;
