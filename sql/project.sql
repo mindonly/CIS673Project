@@ -322,17 +322,17 @@ INSERT INTO uniform (uniformId,purchaseDate) VALUES (18,TO_DATE('12/09/2016','mm
 INSERT INTO uniform (uniformId,purchaseDate) VALUES (19,TO_DATE('12/09/2016','mm/dd/yyyy'));
 INSERT INTO uniform (uniformId,purchaseDate) VALUES (20,TO_DATE('12/09/2016','mm/dd/yyyy'));
 -- Insert marchers
-INSERT INTO marcher (studentId,firstName,lastName,marjor,uniformId) VALUES (1000,'James','Singleton','Accounting',1);
-INSERT INTO marcher (studentId,firstName,lastName,marjor,uniformId) VALUES (1011,'Emily','Reed','Music Education',2);
-INSERT INTO marcher (studentId,firstName,lastName,marjor,uniformId) VALUES (1012,'Cody','Dalm','Music Education',3);
-INSERT INTO marcher (studentId,firstName,lastName,marjor,uniformId) VALUES (2104,'Kalie','Twilling','Ad PR',4);
-INSERT INTO marcher (studentId,firstName,lastName,marjor,uniformId) VALUES (2194,'Katie','Salinas','Accounting',5);
-INSERT INTO marcher (studentId,firstName,lastName,marjor,uniformId) VALUES (2202,'John','Stickroe','Psychology',6);
-INSERT INTO marcher (studentId,firstName,lastName,marjor,uniformId) VALUES (3963,'Abbigail','Fox','Nursing',7);
+INSERT INTO marcher (studentId,firstName,lastName,major,uniformId) VALUES (1000,'James','Singleton','Accounting',1);
+INSERT INTO marcher (studentId,firstName,lastName,major,uniformId) VALUES (1011,'Emily','Reed','Music Education',2);
+INSERT INTO marcher (studentId,firstName,lastName,major,uniformId) VALUES (1012,'Cody','Dalm','Music Education',3);
+INSERT INTO marcher (studentId,firstName,lastName,major,uniformId) VALUES (2104,'Kalie','Twilling','Ad PR',4);
+INSERT INTO marcher (studentId,firstName,lastName,major,uniformId) VALUES (2194,'Katie','Salinas','Accounting',5);
+INSERT INTO marcher (studentId,firstName,lastName,major,uniformId) VALUES (2202,'John','Stickroe','Psychology',6);
+INSERT INTO marcher (studentId,firstName,lastName,major,uniformId) VALUES (3963,'Abbigail','Fox','Nursing',7);
 -- Insert drum majors
-INSERT INTO drumMajor (studentId,firstName,lastName,marjor,uniformId) VALUES (2945,'Zach','Lehman','Music Education',13);
-INSERT INTO drumMajor (studentId,firstName,lastName,marjor,uniformId) VALUES (1855,'Tim','Grieme','Music Education',14);
-INSERT INTO drumMajor (studentId,firstName,lastName,marjor,uniformId) VALUES (2264,'Brianne','Krom','Nursing',15);
+INSERT INTO drumMajor (studentId,firstName,lastName,major,uniformId) VALUES (2945,'Zach','Lehman','Music Education',13);
+INSERT INTO drumMajor (studentId,firstName,lastName,major,uniformId) VALUES (1855,'Tim','Grieme','Music Education',14);
+INSERT INTO drumMajor (studentId,firstName,lastName,major,uniformId) VALUES (2264,'Brianne','Krom','Nursing',15);
 --
 SET FEEDBACK ON
 COMMIT;
