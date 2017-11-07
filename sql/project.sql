@@ -301,12 +301,12 @@ END;
 -- Populate the tables with simple test data
 SET FEEDBACK OFF
 -- Insert uniforms
-INSERT INTO uniform (uniformId,purchaseDate) VALUES (1,'05/17/2013');
-INSERT INTO uniform (uniformId,purchaseDate) VALUES (2,'05/17/2013');
-INSERT INTO uniform (uniformId,purchaseDate) VALUES (3,'05/17/2013');
-INSERT INTO uniform (uniformId,purchaseDate) VALUES (4,'10/03/2015');
-INSERT INTO uniform (uniformId,purchaseDate) VALUES (5,'10/03/2015');
-INSERT INTO uniform (uniformId,purchaseDate) VALUES (5,'12/09/2016');
+INSERT INTO uniform (uniformId,purchaseDate) VALUES (1,TO_DATE('05/17/2013','mm/dd/yyyy'));
+INSERT INTO uniform (uniformId,purchaseDate) VALUES (2,TO_DATE('05/17/2013','mm/dd/yyyy'));
+INSERT INTO uniform (uniformId,purchaseDate) VALUES (3,TO_DATE('05/17/2013','mm/dd/yyyy'));
+INSERT INTO uniform (uniformId,purchaseDate) VALUES (4,TO_DATE('10/03/2015','mm/dd/yyyy'));
+INSERT INTO uniform (uniformId,purchaseDate) VALUES (5,TO_DATE('10/03/2015','mm/dd/yyyy'));
+INSERT INTO uniform (uniformId,purchaseDate) VALUES (5,TO_DATE('12/09/2016','mm/dd/yyyy'));
 --
 SET FEEDBACK ON
 COMMIT;
