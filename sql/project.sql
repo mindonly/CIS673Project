@@ -306,7 +306,7 @@ INSERT INTO uniform (uniformId,purchaseDate) VALUES (2,TO_DATE('05/17/2013','mm/
 INSERT INTO uniform (uniformId,purchaseDate) VALUES (3,TO_DATE('05/17/2013','mm/dd/yyyy'));
 INSERT INTO uniform (uniformId,purchaseDate) VALUES (4,TO_DATE('10/03/2015','mm/dd/yyyy'));
 INSERT INTO uniform (uniformId,purchaseDate) VALUES (5,TO_DATE('10/03/2015','mm/dd/yyyy'));
-INSERT INTO uniform (uniformId,purchaseDate) VALUES (5,TO_DATE('12/09/2016','mm/dd/yyyy'));
+INSERT INTO uniform (uniformId,purchaseDate) VALUES (6,TO_DATE('12/09/2016','mm/dd/yyyy'));
 --
 SET FEEDBACK ON
 COMMIT;
