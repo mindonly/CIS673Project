@@ -172,19 +172,25 @@ BEFORE INSERT OR UPDATE ON
 	participation
 FOR EACH ROW
 DECLARE
-	instrument VARCHAR2;
+	instrument VARCHAR2
+	counter INTEGER;
 BEGIN
 	-- Get the instrument that :new.marcherId used when participating in shows for the given season :new.termCode
 	SELECT DISTINCT
-		instrument
+		instrument,
+		COUNT(1) AS counter
 	INTO
-		instrument
+		instrument,
+		counter
 	FROM
 		participation
 	WHERE
-		termCode = :new.termCode;
+		termCode = :new.termCode
+		AND marcherId = :new.marcherId;
+	GROUP BY
+		instrument
 
-	IF LOWER(instrument) != LOWER(:new.instrument)
+	IF counter > 0 AND LOWER(instrument) != LOWER(:new.instrument)
 	THEN
 		RAISE_APPLICATION_ERROR(-20001,'Invalid instrument. The marcher has been using ' || instrument || ' all of the ' || :new.termCode || ' term. You are trying to switch the instrument to ' || :new.instrument || '.');
 	END IF;
