@@ -300,10 +300,28 @@ END;
 --
 -- Populate the tables with simple test data
 SET FEEDBACK OFF
+-- Insert uniforms
+INSERT INTO uniform (uniformId,purchaseDate) VALUES (1,'05/17/2013');
+INSERT INTO uniform (uniformId,purchaseDate) VALUES (2,'05/17/2013');
+INSERT INTO uniform (uniformId,purchaseDate) VALUES (3,'05/17/2013');
+INSERT INTO uniform (uniformId,purchaseDate) VALUES (4,'10/03/2015');
+INSERT INTO uniform (uniformId,purchaseDate) VALUES (5,'10/03/2015');
+INSERT INTO uniform (uniformId,purchaseDate) VALUES (5,'12/09/2016');
 --
 SET FEEDBACK ON
 COMMIT;
 --
+-- Display the tables
+SELECT * FROM uniform;
+SELECT * FROM marcher;
+SELECT * FROM drumMajor;
+SELECT * FROM song;
+SELECT * FROM composer;
+SELECT * FROM season;
+SELECT * FROM show;
+SELECT * FROM showLineup;
+SELECT * FROM participation;
+SELECT * FROM leadConductor;
 --
---
+-- Queries
 SPOOL OFF
