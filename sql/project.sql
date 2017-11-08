@@ -186,9 +186,9 @@ BEGIN
 		participation
 	WHERE
 		termCode = :new.termCode
-		AND marcherId = :new.marcherId;
+		AND marcherId = :new.marcherId
 	GROUP BY
-		instrument
+		instrument;
 
 	IF counter > 0 AND LOWER(instrument) != LOWER(:new.instrument)
 	THEN
