@@ -339,6 +339,62 @@ INSERT INTO marcher (studentId,firstName,lastName,major,uniformId) VALUES (3963,
 INSERT INTO drumMajor (studentId,firstName,lastName,major,uniformId) VALUES (2945,'Zach','Lehman','Music Education',13);
 INSERT INTO drumMajor (studentId,firstName,lastName,major,uniformId) VALUES (1855,'Tim','Grieme','Music Education',14);
 INSERT INTO drumMajor (studentId,firstName,lastName,major,uniformId) VALUES (2264,'Brianne','Krom','Nursing',15);
+-- Insert seasons
+INSERT INTO season (termCode,description) VALUES (201710,'Fall 2017');
+INSERT INTO season (termCode,description) VALUES (201810,'Fall 2018');
+INSERT INTO season (termCode,description) VALUES (201910,'Fall 2019');
+-- Insert shows
+INSERT INTO show (termCode,title,performDate) VALUES (201710,'Show 1',TO_DATE('08/26/2017','mm/dd/yyyy'));
+INSERT INTO show (termCode,title,performDate) VALUES (201710,'Show 2',TO_DATE('09/2/2017','mm/dd/yyyy'));
+INSERT INTO show (termCode,title,performDate) VALUES (201810,'Show 1',TO_DATE('08/25/2018','mm/dd/yyyy'));
+-- Insert songs
+INSERT INTO song (songId,title,tempo,performDate) VALUES (1,'Queen Opener',120,50);
+INSERT INTO song (songId,title,tempo,performDate) VALUES (2,'All I Do is Win',100,45);
+INSERT INTO song (songId,title,tempo,performDate) VALUES (3,'Applause',120,70);
+INSERT INTO song (songId,title,tempo,performDate) VALUES (4,'Victorious',140,63);
+INSERT INTO song (songId,title,tempo,performDate) VALUES (5,'Come Fly with Me',104,87);
+INSERT INTO song (songId,title,tempo,performDate) VALUES (6,'Night Train',124,33);
+INSERT INTO song (songId,title,tempo,performDate) VALUES (7,'Daft Punk Medley',116,112);
+-- Insert composer
+INSERT INTO composer (songId,composer) VALUES (1,'Tom Wallace');
+INSERT INTO composer (songId,composer) VALUES (1,'Tony McCutchen');
+INSERT INTO composer (songId,composer) VALUES (2,'Tom Wallace');
+INSERT INTO composer (songId,composer) VALUES (3,'Michael Brown');
+INSERT INTO composer (songId,composer) VALUES (3,'Will Rapp');
+INSERT INTO composer (songId,composer) VALUES (4,'Matt Conaway');
+INSERT INTO composer (songId,composer) VALUES (4,'Jack Holt');
+INSERT INTO composer (songId,composer) VALUES (5,'Paul Murtha');
+INSERT INTO composer (songId,composer) VALUES (5,'Will Rapp');
+INSERT INTO composer (songId,composer) VALUES (6,'Tom Wallace');
+INSERT INTO composer (songId,composer) VALUES (7,'Tom Wallace');
+INSERT INTO composer (songId,composer) VALUES (7,'Tony McCutchen');
+-- Insert participation
+--	--	--	201710 Show 1	--	--	--
+INSERT INTO participation (marcherId,termCode,showTitle,instrument) VALUES (1000,201710,'Show 1','clarinet');
+INSERT INTO participation (marcherId,termCode,showTitle,instrument) VALUES (1011,201710,'Show 1','piccolo');
+INSERT INTO participation (marcherId,termCode,showTitle,instrument) VALUES (1012,201710,'Show 1','alto sax');
+INSERT INTO participation (marcherId,termCode,showTitle,instrument) VALUES (2104,201710,'Show 1','tenor sax');
+INSERT INTO participation (marcherId,termCode,showTitle,instrument) VALUES (2194,201710,'Show 1','tenor sax');
+INSERT INTO participation (marcherId,termCode,showTitle,instrument) VALUES (2202,201710,'Show 1','mellophone');
+INSERT INTO participation (marcherId,termCode,showTitle,instrument) VALUES (3963,201710,'Show 1','percussion');
+--	--	--	201710 Show 2	--	--	--
+INSERT INTO participation (marcherId,termCode,showTitle,instrument) VALUES (1000,201710,'Show 2','clarinet');
+INSERT INTO participation (marcherId,termCode,showTitle,instrument) VALUES (1011,201710,'Show 2','piccolo');
+-- marcherId 1012 did not participate in 201710 Show 2
+INSERT INTO participation (marcherId,termCode,showTitle,instrument) VALUES (2104,201710,'Show 2','tenor sax');
+INSERT INTO participation (marcherId,termCode,showTitle,instrument) VALUES (2194,201710,'Show 2','tenor sax');
+INSERT INTO participation (marcherId,termCode,showTitle,instrument) VALUES (2202,201710,'Show 2','mellophone');
+INSERT INTO participation (marcherId,termCode,showTitle,instrument) VALUES (3963,201710,'Show 2','percussion');
+--	--	--	201810 Show 1	--	--	--
+INSERT INTO participation (marcherId,termCode,showTitle,instrument) VALUES (1000,201810,'Show 1','clarinet');
+INSERT INTO participation (marcherId,termCode,showTitle,instrument) VALUES (1011,201810,'Show 1','piccolo');
+INSERT INTO participation (marcherId,termCode,showTitle,instrument) VALUES (1012,201810,'Show 1','alto sax');
+INSERT INTO participation (marcherId,termCode,showTitle,instrument) VALUES (2104,201810,'Show 1','sousaphone');
+INSERT INTO participation (marcherId,termCode,showTitle,instrument) VALUES (2194,201810,'Show 1','tenor sax');
+INSERT INTO participation (marcherId,termCode,showTitle,instrument) VALUES (2202,201810,'Show 1','mellophone');
+INSERT INTO participation (marcherId,termCode,showTitle,instrument) VALUES (3963,201810,'Show 1','percussion');
+-- Insert showLineUp
+
 --
 SET FEEDBACK ON
 COMMIT;
