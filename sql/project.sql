@@ -172,7 +172,7 @@ BEFORE INSERT OR UPDATE ON
 	participation
 FOR EACH ROW
 DECLARE
-	instrument VARCHAR2
+	instrument VARCHAR2;
 	counter INTEGER;
 BEGIN
 	-- Get the instrument that :new.marcherId used when participating in shows for the given season :new.termCode
