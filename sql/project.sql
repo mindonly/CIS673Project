@@ -194,6 +194,10 @@ BEGIN
 	GROUP BY
 		instrument;
 
+	EXCEPTION
+	WHEN NO_DATA_FOUND THEN
+	counter := 0;
+
 	IF counter > 0 AND LOWER(instrument) != LOWER(:new.instrument)
 	THEN
 		RAISE_APPLICATION_ERROR(-20001,'Invalid instrument. The marcher has been using ' || instrument || ' all of the ' || :new.termCode || ' term. You are trying to switch the instrument to ' || :new.instrument || '.');
