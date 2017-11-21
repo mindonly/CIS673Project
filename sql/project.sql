@@ -23,9 +23,9 @@ CREATE TABLE uniform (
 -- Create Marcher Table
 CREATE TABLE marcher (
 	studentId NUMBER(15),
-	firstName VARCHAR2(255),
-	lastName VARCHAR2(255),
-	major VARCHAR2(255),
+	firstName VARCHAR2(30),
+	lastName VARCHAR2(30),
+	major VARCHAR2(30),
 	uniformId NUMBER(15),
 	--
 	-- marcher_IC1:
@@ -40,9 +40,9 @@ CREATE TABLE marcher (
 -- Create Drum Major Table
 CREATE TABLE drumMajor (
 	studentId NUMBER(15),
-	firstName VARCHAR2(255),
-	lastName VARCHAR2(255),
-	major VARCHAR2(255),
+	firstName VARCHAR2(30),
+	lastName VARCHAR2(30),
+	major VARCHAR2(30),
 	uniformId NUMBER(15),
 	--
 	-- drumMajor_IC1:
@@ -57,7 +57,7 @@ CREATE TABLE drumMajor (
 -- Create Season Table
 CREATE TABLE season (
 	termCode NUMBER(6),
-	description VARCHAR2(255),
+	description VARCHAR2(30),
 	--
 	-- season_IC1:
 	-- termCode is the primary key
@@ -67,7 +67,7 @@ CREATE TABLE season (
 -- Create Show Table
 CREATE TABLE show (
 	termCode NUMBER(6),
-	title VARCHAR2(255),
+	title VARCHAR2(30),
 	performDate DATE,
 	--
 	-- show_IC1:
@@ -84,7 +84,7 @@ CREATE TABLE show (
 -- Create Song Table
 CREATE TABLE song (
 	songId NUMBER(15),
-	title VARCHAR2(255),
+	title VARCHAR2(30),
 	tempo NUMBER(3),
 	measureCount NUMBER(3),
 	--
@@ -99,7 +99,7 @@ CREATE TABLE song (
 -- Create Composer Table
 CREATE TABLE composer (
 	songId NUMBER(15),
-	composer VARCHAR2(255),
+	composer VARCHAR2(30),
 	--
 	-- composer_IC1:
 	-- songId and composer are the composite primary key
@@ -116,8 +116,8 @@ CREATE TABLE composer (
 CREATE TABLE participation (
 	marcherId NUMBER(15),
 	termCode NUMBER(6),
-	showTitle VARCHAR2(255),
-	instrument VARCHAR2(255),
+	showTitle VARCHAR2(30),
+	instrument VARCHAR2(30),
 	--
 	-- participation_IC1:
 	-- marcherId, termCode, and showTitle are the composite primary key
@@ -208,7 +208,7 @@ END;
 -- Create Lead Conductor Table
 CREATE TABLE leadConductor (
 	termCode NUMBER(6),
-	showTitle VARCHAR2(255),
+	showTitle VARCHAR2(30),
 	songId NUMBER(15),
 	drumMajorId NUMBER(15),
 	--
@@ -261,7 +261,7 @@ END;
 -- Create Show Line Up Table
 CREATE TABLE showLineup (
 	termCode NUMBER(6),
-	showTitle VARCHAR2(255),
+	showTitle VARCHAR2(30),
 	songId NUMBER(15),
 	orderBy INTEGER,
 	--
