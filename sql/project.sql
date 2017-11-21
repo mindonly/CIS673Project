@@ -7,6 +7,8 @@ Rob Sanchez
 Victor Sun
 Justin Wickenheiser
 */
+-- Set the linesize (only to help keep things clean)
+SET LINESIZE 300;
 --
 -- CREATE TABLES
 -- 
