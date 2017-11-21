@@ -431,5 +431,87 @@ SELECT * FROM participation;
 SELECT * FROM leadConductor;
 --
 -- Queries
+-- 1. Join involving at least four relations.
+-- Find the instrument, show title, and season description for each show that Kalie Twilling particiapted in. Order the results by the season and then by show title.
+SELECT
+	m.firstName,
+	m.lastName,
+	s.description AS Season,
+	sh.title AS Show,
+	p.instrument
+FROM
+	season s,
+	show sh,
+	participation p,
+	marcher m
+WHERE
+	s.termCode = sh.termCode
+	AND sh.termCode = p.termCode
+	AND sh.title = p.showTitle
+	AND p.marcherId = m.studentId
+	AND LOWER(m.firstName) = 'kalie'
+	AND LOWER(m.lastName) = 'twilling'
+ORDER BY
+	s.description,
+	sh.title
+;
+--
+-- 2. Self join
+-- Find pairs of marchers that share the same major.
+SELECT
+	m1.firstName || ' ' || m1.lastName AS Marcher_1,
+	m2.firstName || ' ' || m2.lastName AS Marcher_2,
+	m1.major
+FROM
+	marcher m1,
+	marcher m2
+WHERE
+	m1.major = m2.major
+	AND m1.studentId < m2.studentId
+ORDER BY
+	m1.major
+;
+--
+-- 3. Union
+-- Select the firstName and lastName of marchers and drum majors that are majoring in Music Education. Order by the lastName.
+SELECT
+	firstName,
+	lastName
+FROM
+	marcher
+WHERE
+	LOWER(major) = 'music education'
+UNION
+SELECT
+	firstName,
+	lastName
+FROM
+	drumMajor
+WHERE
+	LOWER(major) = 'music education'
+ORDER BY
+	lastName
+;
+--
+-- 4. SUM, AVG, MAX, and MIN
+-- Find the total number of measures, the average number of measures, max and min number of measures across all songs.
+SELECT
+	SUM(measureCount),
+	AVG(measureCount),
+	MAX(measureCount),
+	MIN(measureCount)
+FROM
+	song
+;
+--
+-- 5. GROUP BY, HAVING, and ORDER BY
+--
+SELECT
+FROM
+WHERE
+GROUP BY
+HAVING
+ORDER BY
+;
 --
 SPOOL OFF
