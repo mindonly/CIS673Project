@@ -344,13 +344,13 @@ INSERT INTO show (termCode,title,performDate) VALUES (201710,'Show 1',TO_DATE('0
 INSERT INTO show (termCode,title,performDate) VALUES (201710,'Show 2',TO_DATE('09/2/2017','mm/dd/yyyy'));
 INSERT INTO show (termCode,title,performDate) VALUES (201810,'Show 1',TO_DATE('08/25/2018','mm/dd/yyyy'));
 -- Insert songs
-INSERT INTO song (songId,title,tempo,performDate) VALUES (1,'Queen Opener',120,50);
-INSERT INTO song (songId,title,tempo,performDate) VALUES (2,'All I Do is Win',100,45);
-INSERT INTO song (songId,title,tempo,performDate) VALUES (3,'Applause',120,70);
-INSERT INTO song (songId,title,tempo,performDate) VALUES (4,'Victorious',140,63);
-INSERT INTO song (songId,title,tempo,performDate) VALUES (5,'Come Fly with Me',104,87);
-INSERT INTO song (songId,title,tempo,performDate) VALUES (6,'Night Train',124,33);
-INSERT INTO song (songId,title,tempo,performDate) VALUES (7,'Daft Punk Medley',116,112);
+INSERT INTO song (songId,title,tempo,measureCount) VALUES (1,'Queen Opener',120,50);
+INSERT INTO song (songId,title,tempo,measureCount) VALUES (2,'All I Do is Win',100,45);
+INSERT INTO song (songId,title,tempo,measureCount) VALUES (3,'Applause',120,70);
+INSERT INTO song (songId,title,tempo,measureCount) VALUES (4,'Victorious',140,63);
+INSERT INTO song (songId,title,tempo,measureCount) VALUES (5,'Come Fly with Me',104,87);
+INSERT INTO song (songId,title,tempo,measureCount) VALUES (6,'Night Train',124,33);
+INSERT INTO song (songId,title,tempo,measureCount) VALUES (7,'Daft Punk Medley',116,112);
 -- Insert composer
 INSERT INTO composer (songId,composer) VALUES (1,'Tom Wallace');
 INSERT INTO composer (songId,composer) VALUES (1,'Tony McCutchen');
