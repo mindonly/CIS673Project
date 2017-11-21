@@ -90,7 +90,10 @@ CREATE TABLE song (
 	--
 	-- song_IC1:
 	-- songId is the primary key
-	CONSTRAINT song_IC1 PRIMARY KEY (songId)
+	CONSTRAINT song_IC1 PRIMARY KEY (songId),
+	-- song_IC2:
+	-- If the song has >=200 measures then the tempo must be >= 120
+	CONSTRAINT song_IC2 CHECK (NOT (measureCount >= 200 AND tempo < 120))
 );
 --
 -- Create Composer Table
@@ -222,10 +225,6 @@ CREATE TABLE leadConductor (
 	-- leadConductor_IC4:
 	-- The combination of termCode and showTitle must be an existing show.
 	-- This will need to be done via a trigger.
-	--
-	-- leadConductor_IC5:
-	-- Every song within a show must have a lead conductor.
-	-- This will need to be done via a trigger.
 );
 --
 -- Create leadConductor_IC4 Trigger
@@ -253,9 +252,6 @@ BEGIN
 	END IF;
 END;
 /
---
--- Create leadConductor_IC5 Trigger
--- <<<<<	INSERT CODE HERE	>>>>>
 --
 -- Create Show Line Up Table
 CREATE TABLE showLineup (
@@ -393,8 +389,24 @@ INSERT INTO participation (marcherId,termCode,showTitle,instrument) VALUES (2104
 INSERT INTO participation (marcherId,termCode,showTitle,instrument) VALUES (2194,201810,'Show 1','tenor sax');
 INSERT INTO participation (marcherId,termCode,showTitle,instrument) VALUES (2202,201810,'Show 1','mellophone');
 INSERT INTO participation (marcherId,termCode,showTitle,instrument) VALUES (3963,201810,'Show 1','percussion');
--- Insert showLineUp
-
+-- Insert showLineup
+--	--	--	201710 Show 1	--	--	--
+INSERT INTO showLineUp (termCode,showTitle,songId,orderBy) VALUES (201710,'Show 1',1,1);
+INSERT INTO showLineUp (termCode,showTitle,songId,orderBy) VALUES (201710,'Show 1',3,2);
+INSERT INTO showLineUp (termCode,showTitle,songId,orderBy) VALUES (201710,'Show 1',2,3);
+INSERT INTO showLineUp (termCode,showTitle,songId,orderBy) VALUES (201710,'Show 1',4,4);
+--	--	--	201710 Show 2	--	--	--
+INSERT INTO showLineUp (termCode,showTitle,songId,orderBy) VALUES (201710,'Show 2',7,1);
+INSERT INTO showLineUp (termCode,showTitle,songId,orderBy) VALUES (201710,'Show 2',5,2);
+-- Insert leadConductor
+--	--	--	201710 Show 1	--	--	--
+INSERT INTO leadConductor (termCode,showTitle,songId,drumMajorId) VALUES (201710,'Show 1',1,2945);
+INSERT INTO leadConductor (termCode,showTitle,songId,drumMajorId) VALUES (201710,'Show 1',2,1855);
+INSERT INTO leadConductor (termCode,showTitle,songId,drumMajorId) VALUES (201710,'Show 1',3,2264);
+INSERT INTO leadConductor (termCode,showTitle,songId,drumMajorId) VALUES (201710,'Show 1',4,2945);
+--	--	--	201710 Show 2	--	--	--
+INSERT INTO leadConductor (termCode,showTitle,songId,drumMajorId) VALUES (201710,'Show 2',7,1855);
+INSERT INTO leadConductor (termCode,showTitle,songId,drumMajorId) VALUES (201710,'Show 2',5,2264);
 --
 SET FEEDBACK ON
 COMMIT;
@@ -412,4 +424,5 @@ SELECT * FROM participation;
 SELECT * FROM leadConductor;
 --
 -- Queries
+--
 SPOOL OFF
