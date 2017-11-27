@@ -338,6 +338,7 @@ INSERT INTO marcher (studentId,firstName,lastName,major,uniformId) VALUES (2104,
 INSERT INTO marcher (studentId,firstName,lastName,major,uniformId) VALUES (2194,'Katie','Salinas','Accounting',5);
 INSERT INTO marcher (studentId,firstName,lastName,major,uniformId) VALUES (2202,'John','Stickroe','Psychology',6);
 INSERT INTO marcher (studentId,firstName,lastName,major,uniformId) VALUES (3963,'Abbigail','Fox','Nursing',7);
+INSERT INTO marcher (studentId,firstName,lastName,major,uniformId) VALUES (3004,'Mason','Riley','Music Education',8);
 -- Insert drum majors
 INSERT INTO drumMajor (studentId,firstName,lastName,major,uniformId) VALUES (2945,'Zach','Lehman','Music Education',13);
 INSERT INTO drumMajor (studentId,firstName,lastName,major,uniformId) VALUES (1855,'Tim','Grieme','Music Education',14);
@@ -505,13 +506,137 @@ FROM
 ;
 --
 -- 5. GROUP BY, HAVING, and ORDER BY
---
+-- Find the marchers that particiapted in only 1 show for each season. For each marcher, get their name and the season's description.
 SELECT
+	m.firstName,
+	m.lastName,
+	s.description,
+	COUNT(p.showTitle) AS showsMarched
 FROM
+	marcher m,
+	season s,
+	participation p
 WHERE
+	m.studentId = p.marcherId
+	AND p.termCode = s.termCode
 GROUP BY
+	m.firstName,
+	m.lastName,
+	s.description
 HAVING
+	COUNT(p.showTitle) = 1
 ORDER BY
+	s.description,
+	m.lastName,
+	m.firstName
+;
+--
+-- 6. Correlated Subquery
+-- Find the name of the marcher(s) who have not particiapted in any shows.
+SELECT
+	m.firstName,
+	m.lastName
+FROM
+	marcher m
+WHERE
+	NOT EXISTS (
+		SELECT
+			*
+		FROM
+			participation
+		WHERE
+			marcherId = m.studentId
+	)
+;
+--
+-- 7. Non-Correlated Subquery
+-- Find the song(s) that are not a part of any show line up.
+SELECT
+	title
+FROM
+	song
+WHERE
+	songId NOT IN (
+		SELECT
+			songId
+		FROM
+			showLineUp
+	)
+;
+--
+-- 8. Relational DIVISION
+-- Find the studentId and name of every drum major who has conducted every song composed by Will Rapp
+SELECT
+	dm.studentId,
+	dm.firstName,
+	dm.lastName
+FROM 
+	drumMajor dm
+WHERE
+	NOT EXISTS (
+		(
+			SELECT
+				c.songId
+			FROM
+				composer c
+			WHERE
+				LOWER(c.composer) = 'will rapp'
+		) MINUS (
+			SELECT
+				l.songId
+			FROM
+				leadConductor l, composer c
+			WHERE
+				l.drumMajorId = dm.studentId
+				AND l.songId = c.songId
+				AND LOWER(c.composer) = 'will rapp'
+		)
+	)
+;
+--
+-- 9. Outer Join
+-- Find the uniformId and purchase date of every uniform. Also show the students name for those who have them.
+SELECT
+	u.uniformId,
+	u.purchaseDate,
+	m.firstName || ' ' || m.lastName AS marcher,
+	d.firstName || ' ' || d.lastName AS drumMajor
+FROM
+	uniform u
+LEFT OUTER JOIN
+	marcher m ON u.uniformId = m.uniformId
+LEFT OUTER JOIN
+	drumMajor d ON u.uniformId = d.uniformId
+ORDER BY
+	u.uniformId
+;
+--
+-- 10. RANK Query
+-- Find the RANK and DENSE RANK of the uniform purchase date of '09-DEC-16' among all purchase dates
+SELECT
+	RANK('09-DEC-16') WITHIN GROUP (ORDER BY purchaseDate) AS "Rank of 09-DEC-16",
+	DENSE_RANK('09-DEC-16') WITHIN GROUP (ORDER BY purchaseDate) AS "Dense Rank of 09-DEC-16"
+FROM
+	uniform
+;
+--
+-- 11. Top-N Query
+-- Find the title and tempo of the four fastest songs.
+SELECT
+	title,
+	tempo
+FROM
+	(
+		SELECT
+			title,
+			tempo
+		FROM
+			song
+		ORDER BY
+			tempo DESC
+	)
+WHERE
+	ROWNUM <= 4
 ;
 --
 SPOOL OFF
