@@ -178,29 +178,25 @@ BEFORE INSERT OR UPDATE ON
 FOR EACH ROW
 DECLARE
 	PRAGMA AUTONOMOUS_TRANSACTION;
-	instrument VARCHAR2(30);
-	counter INTEGER;
+	numInstruments INTEGER;
 BEGIN
 	-- Get the instrument that :new.marcherId used when participating in shows for the given season :new.termCode
-	SELECT DISTINCT
-		instrument,
-		COUNT(1) AS counter
+	SELECT
+		COUNT(DISTINCT instrument) AS numInstruments
 	INTO
-		instrument,
-		counter
+		numInstruments
 	FROM
 		participation
 	WHERE
 		termCode = :new.termCode
 		AND marcherId = :new.marcherId
-	GROUP BY
-		instrument;
+	;
 
 	EXCEPTION
 	WHEN NO_DATA_FOUND THEN
-	counter := 0;
+	numInstruments := 0;
 
-	IF counter > 0 AND LOWER(instrument) != LOWER(:new.instrument)
+	IF numInstruments > 0 AND LOWER(:old.instrument) != LOWER(:new.instrument)
 	THEN
 		RAISE_APPLICATION_ERROR(-20001,'Invalid instrument. The marcher has been using ' || instrument || ' all of the ' || :new.termCode || ' term. You are trying to switch the instrument to ' || :new.instrument || '.');
 	END IF;
@@ -638,5 +634,47 @@ FROM
 WHERE
 	ROWNUM <= 4
 ;
+--
+-- TESTING ICs
+-- 
+-- Testing: marcher_IC1 (key)
+INSERT INTO marcher (studentId,firstName,lastName,major,uniformId) VALUES (3004,'Emily','Ketchum','Accounting',9);
+COMMIT;
+--
+-- Testing: drumMajor_IC2 (foreign key)
+UPDATE
+	drumMajor
+SET
+	uniformId = 99
+WHERE
+	studentId = 2945
+;
+COMMIT;
+--
+-- Testing: participation_IC3 (1-attribute)
+UPDATE
+	participation
+SET
+	instrument = 'flute'
+WHERE
+	marcherId = 3963
+;
+COMMIT;
+--
+-- Testing: song_IC2 (2-attribute, 1 row)
+INSERT INTO song (songId,title,tempo,measureCount) VALUES (8,'Wabash Cannonball',116,245);
+COMMIT;
+--
+-- Testing: participation_IC5_tr (2-row)
+UPDATE
+	participation
+SET
+	instrument = 'piccolo'
+WHERE
+	marcherId = 1000
+	AND termCode = 201710
+	AND showTitle = 'Show 2'
+;
+COMMIT;
 --
 SPOOL OFF
