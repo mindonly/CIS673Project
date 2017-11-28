@@ -105,6 +105,6 @@ FROM Song
 
 11. 
 --Top-N query
-SELECT TOP 5 * 
+SELECT * 
 FROM Uniform
-WHERE PurchaseDate = '08/01/2017';
+WHERE PurchaseDate = '08/01/2017' and rownum <= 5;
