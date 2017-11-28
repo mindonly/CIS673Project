@@ -180,6 +180,7 @@ DECLARE
 	PRAGMA AUTONOMOUS_TRANSACTION;
 	numInstruments INTEGER;
 BEGIN
+	numInstruments := 0;
 	-- Get the instrument that :new.marcherId used when participating in shows for the given season :new.termCode
 	SELECT
 		COUNT(DISTINCT instrument) AS numInstruments
@@ -191,10 +192,6 @@ BEGIN
 		termCode = :new.termCode
 		AND marcherId = :new.marcherId
 	;
-
-	EXCEPTION
-	WHEN NO_DATA_FOUND THEN
-	numInstruments := 0;
 
 	IF numInstruments > 0 AND LOWER(:old.instrument) != LOWER(:new.instrument)
 	THEN
