@@ -49,7 +49,7 @@
     <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="843.25" cy="68" rx="39.25" ry="18"/>
     <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="843.25" y="72">Major</text>
   </g>
-  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="691.293" y1="99.7279" x2="768.324" y2="161"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="691.294" y1="99.728" x2="768.324" y2="161"/>
   <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="753.4" y1="54" x2="768.324" y2="161"/>
   <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="843.25" y1="86" x2="768.324" y2="161"/>
   <g>
@@ -174,7 +174,7 @@
   <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="517.75" y1="555" x2="501.226" y2="588"/>
   <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="296.8" y1="607" x2="341" y2="629"/>
   <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="539.2" y1="1010" x2="600.4" y2="922"/>
-  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="656.879" y1="1042.27" x2="600.4" y2="922"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="656.878" y1="1042.27" x2="600.4" y2="922"/>
   <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="600.4" y1="922" x2="621.25" y2="1088"/>
   <g>
     <ellipse style="fill: #ffffff" cx="252.25" cy="660" rx="39.25" ry="18"/>
@@ -183,7 +183,7 @@
     <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke-dasharray: 6; stroke: #000000" x1="233" y1="668" x2="271.5" y2="668"/>
   </g>
   <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="291.5" y1="660" x2="341" y2="629"/>
-  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="429.293" y1="73.7279" x2="412.324" y2="161"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="429.294" y1="73.728" x2="412.324" y2="161"/>
   <g>
     <ellipse style="fill: #ffffff" cx="231.25" cy="803" rx="39.25" ry="18"/>
     <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="231.25" cy="803" rx="39.25" ry="18"/>
@@ -232,7 +232,7 @@
     <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="880.4,724 880.4,675.17 884.45,675.17 884.45,621.34 "/>
   </g>
   <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="885.75,374 885.75,480 881.95,480 881.95,565 "/>
-  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="404.8,647 404.8,745 515,745 515,741.17 "/>
+  <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="399.8,647 399.8,745 515,745 515,741.17 "/>
   <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="630.807,904 670.93,904 670.93,900.48 711.052,900.48 "/>
   <g>
     <ellipse style="fill: #ffffff" cx="542.25" cy="1058" rx="39.25" ry="18"/>
@@ -246,7 +246,7 @@
     <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="717.2" y="999">MeasureCount</text>
   </g>
   <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="600.4" y1="922" x2="670.39" y2="982.272"/>
-  <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="520" y="20">
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="520" y="20">
     <tspan x="520" y="20"></tspan>
   </text>
   <text font-size="22.5778" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:700" x="600" y="680">
