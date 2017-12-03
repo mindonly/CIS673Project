@@ -647,6 +647,14 @@ WHERE
 	studentId = 2945
 ;
 COMMIT;
+
+-- 
+-- Testing: composer_ic2 (foreign key)
+INSERT INTO composer VALUES (99,'Biggie Smalls');
+COMMIT;
+
+
+
 --
 -- Testing: participation_IC3 (1-attribute)
 UPDATE
